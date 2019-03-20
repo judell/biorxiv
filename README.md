@@ -10,3 +10,4 @@ annotations, and replies. The citation tools link becomes a reviews element that
 It runs from a bookmarklet, which cannot be made bookmark-bar-draggable from GitHub, but there's a draggable link at 
 http://jonudell.info/h/#bookmarklets
 
+![](https://jonudell.info/h/biorxiv-bookmarklet.jpg)
