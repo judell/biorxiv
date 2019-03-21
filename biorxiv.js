@@ -12,6 +12,11 @@ const groupCounts = {
   'yr4Z4ve8': 0,
 }
 
+const groupEntryUrls = {
+  '6gPr7Xd3': 'https://hyp.is/FDPztktaEemRX9_8XYZw0g/www.biorxiv.org/content/10.1101/540088v2',
+  'yr4Z4ve8': 'https://hyp.is/8P_s2EtZEem30LPyxJzKYg/www.biorxiv.org/content/10.1101/540088v2',
+}
+
 
 async function run() {
   await delay(.5)
@@ -46,7 +51,7 @@ async function run() {
   Object.keys(groups).forEach ( group => {
     if ( groupCounts[group]) {
       reviewGroupsWithAnnotations += `
-        <div><a target="_hypothesisReviewGroup" href="https://hypothes.is/groups/${group}">${groups[group]}</a>`
+        <div><a href="${groupEntryUrls[group]}">${groups[group]}</a>`
     }
   })
 
