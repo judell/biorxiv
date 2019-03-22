@@ -35,8 +35,8 @@ async function run() {
   })
 
   const counterElement = hlib.getById('ccountx')
-  counterElement.innerHTML = `review groups: 2, annos: ${groupAnnos}, replies ${groupReplies}`
-  
+  counterElement.innerHTML = `<span style="cursor:pointer" data-hypothesis-trigger>review groups: 2, annos: ${groupAnnos}, replies ${groupReplies}</span>`
+    
   let reviewGroupsWithAnnotations = ''
   Object.keys(groups).forEach ( group => {
     if ( groupCounts[group]) {
@@ -60,6 +60,10 @@ async function run() {
   const existingToolElement = document.querySelector('.pane-biorxiv-cite-tool')
 
   existingToolElement.innerHTML = newToolHtml
+
+  const embedScript = document.createElement('script')
+  embedScript.setAttribute('src','https://hypothes.is/embed.js')
+  document.head.appendChild(embedScript);  
   
 }
 
