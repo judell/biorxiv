@@ -12,12 +12,6 @@ const groupCounts = {
   'yr4Z4ve8': 0,
 }
 
-const groupEntryUrls = {
-  '6gPr7Xd3': 'https://hyp.is/FDPztktaEemRX9_8XYZw0g/www.biorxiv.org/content/10.1101/540088v2',
-  'yr4Z4ve8': 'https://hyp.is/8P_s2EtZEem30LPyxJzKYg/www.biorxiv.org/content/10.1101/540088v2',
-}
-
-
 async function run() {
   await delay(.5)
   const params = {
@@ -40,26 +34,21 @@ async function run() {
     }     
   })
 
-  function showReviews() {
-
-  }
-
   const counterElement = hlib.getById('ccountx')
   counterElement.innerHTML = `review groups: 2, annos: ${groupAnnos}, replies ${groupReplies}`
-
+  
   let reviewGroupsWithAnnotations = ''
   Object.keys(groups).forEach ( group => {
     if ( groupCounts[group]) {
       reviewGroupsWithAnnotations += `
-        <div><a href="${groupEntryUrls[group]}">${groups[group]}</a>`
+        <div><a class="reviewGroup">${groups[group]}</a></div>`
     }
   })
-
   const newToolHtml = `
       <div class="pane-content">
         <div class="minipanel-dialog-wrapper">
           <div class="minipanel-dialog-link-link">
-            <a href="showReviews()" title="Reviews"><i class="icon-globe"></i> 
+            <a  title="Reviews"><i class="icon-globe"></i> 
               <span class="title">Reviews</span>
             </a>
           <div class="hypothesisReviewGroups">
@@ -71,6 +60,7 @@ async function run() {
   const existingToolElement = document.querySelector('.pane-biorxiv-cite-tool')
 
   existingToolElement.innerHTML = newToolHtml
+  
 }
 
 run()
